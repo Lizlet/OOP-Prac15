@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VB15-del1", "VB15-del1\VB15-del1.vbproj", "{AD178F4E-506C-4470-B5BB-D33ADAD67C5E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD178F4E-506C-4470-B5BB-D33ADAD67C5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD178F4E-506C-4470-B5BB-D33ADAD67C5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD178F4E-506C-4470-B5BB-D33ADAD67C5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD178F4E-506C-4470-B5BB-D33ADAD67C5E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
