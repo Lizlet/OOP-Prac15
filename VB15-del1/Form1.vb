@@ -29,9 +29,17 @@ Public Class Form1
         da.Fill(interTabell)
 
         If interTabell.Rows.Count > 0 Then
-            MsgBox("Logget på")
+            Dim rnd As New Random()
+            Dim u As New Form2
+            interTabell.Clear()
+
+            sql.CommandText = "select vits from vitser where id=" & rnd.Next(1, 6)
+            da.SelectCommand = sql
+            da.Fill(interTabell)
+            u.upd(TextBox1.Text, interTabell.Rows(0).Item("vits"))
+            u.Show()
         Else
-            MsgBox("Feil brukernavn eller passord")
+            Console.WriteLine("Feil brukernavn eller passord")
         End If
     End Sub
 End Class
