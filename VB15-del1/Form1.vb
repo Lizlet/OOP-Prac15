@@ -2,6 +2,10 @@
 
 Public Class Form1
     Private tilkobling As MySqlConnection
+    Private serverName As String = "mysql.stud.iie.ntnu.no"
+    Private dbName As String = "sondg"
+    Private userID As String = "sondg"
+    Private userPWD As String = "7ppasexr"
 
     Private Sub Form1_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
         tilkobling.Close()
@@ -9,14 +13,15 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        tilkobling = New MySqlConnection("Server=mysql.stud.iie.ntnu.no;Database=sondg;Uid=sondg;Pwd=7ppasexr")
+        tilkobling = New MySqlConnection(String.Format("Server={0};Database={1};Uid={2};Pwd={3};", serverName, dbName, userID, userPWD))
         tilkobling.Open()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim sqlSporring = "select * from Brukere where brukernavn='" & TextBox1.Text & "' and passord='" & TextBox2.Text & "'"
-        Dim sql As New MySqlCommand(sqlSporring, tilkobling)
-        MsgBox("SQL-spørringen er: " & sqlSporring)
+        Dim sql As New MySqlCommand("select * from Brukere where brukernavn=@brukernavn and passord=@passord", tilkobling)
+        sql.Parameters.AddWithValue("@brukernavn", TextBox1.Text)
+        sql.Parameters.AddWithValue("@passord", TextBox2.Text)
+        Console.WriteLine("SQL-spørringen er: " & sql.CommandText)
 
         Dim da As New MySqlDataAdapter
         Dim interTabell As New DataTable
